@@ -31,9 +31,9 @@ Pas besoin de réinventer la roue, on utilisera les roues créées par les préd
 - Version de PHP requis : ``7.2.5``.
 - [Installer composer](https://getcomposer.org/download/).
 - Cloner le projet dans un dossier en local avec ```git clone url_du_projet```.
-- Pas besoin de paramétrer une propre base de donnée, car j'ai utilisé sqlite et créé un fichier ``Sap-test.db`` dans le dossier var.
 - Installer tous les packages composer avec la commande ```Composer install```.
-- Créer la base de donnée ``php bin/console doctrine:database:create``
+- Pas besoin de paramétrer une propre base de donnée, car j'ai utilisé sqlite et créé un fichier ``Sap-test.db`` dans le dossier var, vous pourrez le remarquer/changer le nom dans le fichier .env.
+- Créer la base de donnée ``php bin/console doctrine:database:create``. Normalement cette procédure va vous créer la base de donnée sous format fichier ```.db```.
 - Mettre à jour la base de donnée ``php bin/console do:mi:mi``
 - Ajouter les fixtures ```php bin/console doctrine:fixtures:load```
 - Et voilà, votre projet est prêt et suffit de faire un petit ```symfony serve``` pour démarrer le serveur symfony.
