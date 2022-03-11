@@ -72,4 +72,9 @@ class Invoice
 
         return $this;
     }
+
+    public function getTtcAmount(): ?string
+    {
+        return $this->htAmount * 1.2;
+    }
 }
