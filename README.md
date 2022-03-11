@@ -14,6 +14,16 @@ Modifier le "tld": "wip" par "tld": "local:5458" puis enregistrer.
 cd Sap-test/
 symfony proxy:domain:attach www.testrec01
 ```
+Il faut également faire des paramétrages dans votre OS
+- [Paramétrage Windows](https://www.dummies.com/article/technology/computers/operating-systems/windows/windows-10/how-to-set-up-a-proxy-in-windows-10-140262).
+- [Paramétrage Macos](https://support.apple.com/fr-fr/guide/mac-help/mchlp2591/mac).
+- [Paramétrage Ubuntu](https://help.ubuntu.com/stable/ubuntu-help/net-proxy.html.en).
+
+Et mettre l'url suivant dans la partie Automatic Proxy Configuration ```http://127.0.0.1:7080/proxy.pac```
+et enfin faire un
+```
+symfony proxy:start
+```
 
 3/ Pour créer un module d'authentification, j'ai décidé d'utiliser le bundle Security de Symfony qui est très bien fait, et qui fournit toutes les fonctionnalité d'authentification et d'autorisation nécessaires pour sécuriser l'application. Donc pas besoin de se casser plus la tête.
 
