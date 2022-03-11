@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle facture{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Générer une nouvelle facture</h1>
+
+        {{ include('invoice/_form.html.twig') }}
+
+        <a href="{{ path('home') }}">Revenir à la page d'accueil</a>
+    </div>
+
+{% endblock %}

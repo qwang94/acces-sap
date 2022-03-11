@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="assets/css/security.css">
+{% endblock %}
+{% block body %}
+
+    <div class="text-center">
+        <h1>Création de compte</h1>
+        <main class="form-signin">
+            {{ form_start(registrationForm) }}
+            {{ form_row(registrationForm.email) }}
+            {{ form_row(registrationForm.plainPassword, {
+                label: 'Password'
+            }) }}
+
+            <button type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+            {{ form_end(registrationForm) }}
+            <a href="{{ path('app_login') }}" class="badge bg-light text-dark">Déjà un compte ? Connectez vous !</a>
+            <p class="mt-5 mb-3 text-muted">&copy; 2022 Développé avec ❤ par Qichao</p>
+        </main>
+    </div>
+
+{% endblock %}

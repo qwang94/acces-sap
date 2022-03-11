@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DefaultController!{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    {% if app.user %}
+        <a href="{{ path('app_logout') }}" class="btn btn-dark" style="margin-left: 84%;">Se déconnecter</a>
+    {% endif %}
+    {{ include('partials/navbar.html.twig') }}
+    {{ include('partials/navtabs.html.twig') }}
+    <hr>
+    <div class="row align-items-start">
+        <div class="col-3">
+            {{ include('partials/sidebar.html.twig') }}
+        </div>
+        <div class="col-6">
+            <h2>Liste des factures</h2>
+            <a href="{{ path('app_invoice_new') }}" class="btn btn-success">Créer une nouvelle facture</a>
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">n°</th>
+                    <th scope="col">Désignation</th>
+                    <th scope="col">Prix HT</th>
+                    <th scope="col">TVA</th>
+                    <th scope="col">Prix TTC</th>
+                    <th scope="col">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for invoice in invoices %}
+                <tr>
+                    <th scope="row">{{ invoice.id }}</th>
+                    <td>{{ invoice.name }}</td>
+                    <td>{{ invoice.htAmount }}</td>
+                    <td>20%</td>
+                    <td>{{ invoice.htAmount * 1.2 }} €</td>
+                    <td>
+                        <a href="{{ path('app_invoice_edit', { id: invoice.id }) }}" class="btn btn-success">Modifier</a>
+                        {{ include('invoice/_delete_form.html.twig') }}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-center">
+                {% do invoices.setPageRange(2) %}
+                {{ knp_pagination_render(invoices, 'default/pagination.html.twig') }}
+            </div>
+        </div>
+        <div class="col-3">
+            <h2>nous contacter</h2>
+            <p>01 83 94 14 94</p>
+            <p>contact@acces-sap.com</p>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
